@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 const Clear = require("./commands/clear");
 const Ping = require("./commands/ping");
-const Setup = require("./commands/setup");
-require('dotenv').config();
+const Repost = require("./commands/repost");
+require("dotenv").config();
 
 const client = new Discord.Client();
 const source_id = "848559124286799892";
@@ -17,8 +17,9 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
+    if (message.author.bot) return;
     let commandUsed =
-        Clear.parse(message) || Ping.parse(message) || Setup.parse(message);
+        Clear.parse(message) || Ping.parse(message) || Repost.parse(message);
     repost(message);
 });
 

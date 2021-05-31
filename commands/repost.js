@@ -1,8 +1,8 @@
 const Command = require("./command");
 
-module.exports = class Setup extends Command {
+module.exports = class Repost extends Command {
     static match(message) {
-        return message.content.startsWith("!setup");
+        return message.content.startsWith("!repost");
     }
 
     static action(message) {
