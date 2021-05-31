@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
 const Clear = require("./commands/clear");
 const Ping = require("./commands/ping");
 const Repost = require("./commands/repost");
