@@ -6,6 +6,6 @@ module.exports = class Ping extends Command {
     }
 
     static action(message) {
-        message.reply("Pong " + message.channel);
+        message.reply("Pong !");
     }
 };

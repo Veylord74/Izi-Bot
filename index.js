@@ -1,12 +1,11 @@
 const Discord = require("discord.js");
-const Clear = require("./commands/clear");
+// const Clear = require("./commands/clear");
 const Ping = require("./commands/ping");
-const Repost = require("./commands/repost");
 require("dotenv").config();
 
 const client = new Discord.Client();
-const source_id = "848559124286799892";
-const dest_id = "848559311348564018";
+const source_id = "738858508174360607";
+const dest_id = "846778904676401203";
 const delay = 600;
 
 client.on("ready", () => {
@@ -18,8 +17,11 @@ client.on("ready", () => {
 client.on("message", (message) => {
     if (message.author.bot) return;
     let commandUsed =
-        Clear.parse(message) || Ping.parse(message) || Repost.parse(message);
-    repost(message);
+        // Clear.parse(message) ||
+        Ping.parse(message);
+    if (!commandUsed) {
+        repost(message);
+    }
 });
 
 function repost(message) {
@@ -35,6 +37,7 @@ function repost(message) {
             destination.send(message.content, {
                 files: urls,
             });
+            console.log("Reposted message");
         }, delay * 1000);
     }
 }
